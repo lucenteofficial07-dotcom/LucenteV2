@@ -1,0 +1,1912 @@
+
+:root {
+    --bg: #080808;
+    --surface: #101010;
+    --gold: #c8a96b;
+    --gold-light: #ead5a0;
+    --white: #f4f0e8;
+    --muted: #99958c;
+    --border: rgba(200, 169, 107, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.navbar {
+    min-height: 88px;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid rgba(200, 169, 107, 0.25);
+    background: rgba(7, 7, 7, 0.97);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(200, 169, 107, 0.12));
+}
+
+.brand-wordmark {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #f4f0e8;
+    white-space: nowrap;
+}
+
+.brand-dot {
+    color: #c8a96b;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: #bdb9b0;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #c8a96b;
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #ead5a0;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 17px;
+    border: 1px solid rgba(200, 169, 107, 0.65);
+    color: #ead5a0;
+    background: rgba(200, 169, 107, 0.035);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    white-space: nowrap;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-cta span {
+    color: #c8a96b;
+    margin-left: 0;
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.nav-cta:hover {
+    background: rgba(200, 169, 107, 0.12);
+    border-color: #ead5a0;
+}
+
+.nav-cta:hover span {
+    transform: translate(2px, -2px);
+}
+
+.nav-cta span,
+.button span,
+.text-link span {
+    color: var(--gold);
+    margin-left: 7px;
+}
+
+.nav-cta:hover {
+    background: rgba(200, 169, 107, 0.1);
+}
+
+
+
+.hero {
+    min-height: 680px;
+    padding: 90px 7% 85px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 78% 28%,
+            rgba(198, 150, 65, 0.22) 0%,
+            rgba(116, 76, 25, 0.10) 24%,
+            transparent 52%
+        ),
+        radial-gradient(
+            ellipse at 70% 100%,
+            rgba(143, 96, 34, 0.13) 0%,
+            transparent 42%
+        ),
+        linear-gradient(
+            115deg,
+            #050505 0%,
+            #0b0906 58%,
+            #100c07 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.gold-line {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5.1vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    font-weight: normal;
+}
+
+.hero h1 span,
+.about h2 span,
+.final-cta h2 span {
+    color: var(--gold);
+    display: block;
+}
+
+.hero-description {
+    color: #aaa69e;
+    max-width: 430px;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 27px 0 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
+    min-height: 49px;
+    padding: 14px 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: transform 0.25s, background 0.25s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-gold {
+    color: #111;
+    background: var(--gold);
+}
+
+.button-gold:hover {
+    background: var(--gold-light);
+}
+
+.button-gold span {
+    color: #111;
+}
+
+.button-outline {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+}
+
+.button-outline:hover {
+    border-color: var(--gold);
+}
+
+.hero-note {
+    margin-top: 36px;
+    color: #77736c;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-right: 9px;
+}
+
+.hero-visual {
+    min-height: 470px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-glow {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background: rgba(184, 139, 68, 0.11);
+    filter: blur(65px);
+}
+
+.image-ring {
+    position: absolute;
+    width: min(88%, 430px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(200, 169, 107, 0.17);
+    border-radius: 50%;
+}
+
+.statue-image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    height: 480px;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: grayscale(100%) contrast(1.08);
+    animation: statue-float 6s ease-in-out infinite;
+}
+
+.statue-fallback {
+    position: relative;
+    z-index: 1;
+    display: none;
+    width: 270px;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, #191714, #090909);
+    box-shadow: 0 0 80px rgba(200, 169, 107, 0.08);
+}
+
+.statue-fallback span {
+    font-family: Georgia, serif;
+    font-size: 125px;
+    color: var(--gold);
+}
+
+.statue-fallback p {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+}
+
+.visual-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: #77736c;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.hero-index {
+    position: absolute;
+    bottom: 25px;
+    left: 7%;
+    color: #6f6b63;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 34px 7%;
+    gap: 30px;
+    background: #0d0d0d;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.feature {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.feature-number {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 24px;
+}
+
+.feature h3 {
+    font-size: 11px;
+    letter-spacing: 1.3px;
+    margin-bottom: 7px;
+}
+
+.feature p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.about {
+    padding: 105px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-heading .eyebrow {
+    margin-bottom: 20px;
+}
+
+.about h2,
+.final-cta h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.15;
+}
+
+.about-copy p {
+    color: #aaa69e;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 18px;
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--white);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-top: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.final-cta {
+    text-align: center;
+    padding: 100px 20px;
+    background:
+        radial-gradient(ellipse at center, rgba(139, 105, 49, 0.12), transparent 65%),
+        #0d0c0a;
+    border-top: 1px solid var(--border);
+}
+
+.final-cta .eyebrow {
+    margin-bottom: 22px;
+}
+
+.final-cta h2 {
+    font-size: clamp(42px, 6vw, 68px);
+}
+
+.final-cta > p:not(.eyebrow):not(.contact-note) {
+    color: var(--muted);
+    max-width: 460px;
+    margin: 22px auto 28px;
+    font-size: 13px;
+}
+
+.contact-note {
+    color: #716d65;
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+.footer {
+    min-height: 100px;
+    padding: 28px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: #070707;
+}
+
+.footer .logo {
+    font-size: 21px;
+}
+
+.footer p,
+.footer > span {
+    color: #77736c;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+@keyframes statue-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero,
+    .features,
+    .navbar {
+        padding-left: max(7%, calc((100% - 1250px) / 2));
+        padding-right: max(7%, calc((100% - 1250px) / 2));
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .hero {
+        padding: 65px 5% 75px;
+        grid-template-columns: 1fr 0.8fr;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 6vw, 58px);
+    }
+
+    .hero-visual {
+        min-height: 390px;
+    }
+
+    .statue-image {
+        height: 390px;
+    }
+
+    .features {
+        padding: 30px 5%;
+        gap: 20px;
+    }
+
+    .about {
+        padding: 80px 7%;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        height: 70px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-cta {
+        padding: 9px 11px;
+        font-size: 9px;
+    }
+
+    .hero {
+        padding: 60px 6% 65px;
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 10vw, 55px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        margin: 22px auto 25px;
+        font-size: 13px;
+        max-width: 400px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .button {
+        padding: 13px 14px;
+        font-size: 9px;
+    }
+
+    .hero-note {
+        font-size: 8px;
+        line-height: 1.8;
+        margin-top: 25px;
+    }
+
+    .hero-visual {
+        min-height: 310px;
+        margin-top: 5px;
+    }
+
+    .statue-image {
+        height: 320px;
+        max-width: 100%;
+    }
+
+    .image-ring {
+        width: min(85%, 300px);
+    }
+
+    .statue-fallback {
+        height: 270px;
+        width: 210px;
+    }
+
+    .statue-fallback span {
+        font-size: 95px;
+    }
+
+    .visual-label {
+        bottom: -3px;
+        font-size: 7px;
+    }
+
+    .hero-index {
+        bottom: 20px;
+        left: 6%;
+        font-size: 8px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 35px 8%;
+    }
+
+    .feature {
+        gap: 15px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 70px 8%;
+    }
+
+    .about h2 {
+        font-size: 40px;
+    }
+
+    .about-copy p {
+        font-size: 13px;
+    }
+
+    .final-cta {
+        padding: 75px 7%;
+    }
+
+    .final-cta h2 {
+        font-size: 44px;
+    }
+
+    .footer {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* LUCENTE — MOBILE HERO FIX */
+@media (max-width: 640px) {
+    .navbar {
+        min-height: 68px;
+        padding: 10px 16px;
+        gap: 10px;
+    }
+
+    .brand {
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .brand-logo {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+    }
+
+    .brand-wordmark {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-cta {
+        padding: 10px 11px;
+        font-size: 9px;
+        letter-spacing: 0.8px;
+    }
+
+    .nav-actions {
+        flex-shrink: 0;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 64px 22px 44px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 38px;
+        text-align: center;
+        background:
+            radial-gradient(
+                ellipse at 50% 58%,
+                rgba(198, 150, 65, 0.15),
+                transparent 55%
+            ),
+            linear-gradient(180deg, #080808, #0d0b08);
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 9vw, 48px);
+        line-height: 1.06;
+        letter-spacing: -1.2px;
+        overflow-wrap: normal;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        line-height: 1.8;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hero-buttons a {
+        max-width: 100%;
+    }
+
+    .hero-visual {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .hero-visual img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Remove stray navbar decoration */
+.navbar::after,
+.nav-actions::after,
+.nav-cta::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* NAVBAR SPACING FIX */
+@media (max-width: 640px) {
+    .statue-slideshow {
+        height: 340px;
+        min-height: 340px;
+    }
+
+    .statue-slide {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 25%;
+    }
+}
+
+    .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        margin: 0;
+    }
+}
+
+/* LUCENTE GREEK STATUE SLIDESHOW */
+.statue-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    overflow: hidden;
+    background: #080808;
+    border: 1px solid rgba(205, 165, 91, 0.45);
+    box-shadow: 0 0 40px rgba(205, 165, 91, 0.12);
+}
+
+.statue-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 1s ease, transform 4s ease;
+}
+
+.statue-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (max-width: 640px) {
+    .statue-slideshow {
+        min-height: 460px;
+        height: 460px;
+    }
+}
+
+/* COMPACT MOBILE STATUE CARD */
+@media (max-width: 640px) {
+    .hero-visual {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .statue-slideshow {
+        width: 100%;
+        height: 360px;
+        min-height: 360px;
+        overflow: hidden;
+    }
+}
+
+    .statue-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 25%;
+    }
+
+    .visual-label {
+        font-size: 9px;
+    }
+
+    .hero-index {
+        margin-top: 12px;
+    }
+}
+
+/* FIX STATUE CARD LABELS */
+@media (max-width: 640px) {
+    .visual-label {
+        position: static;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        padding-top: 12px;
+        line-height: 1.6;
+        flex-wrap: wrap;
+    }
+
+    .visual-label span {
+        position: static;
+        font-size: 9px;
+    }
+
+    .hero-index {
+        position: static;
+        margin-top: 12px;
+        line-height: 1.6;
+    }
+}
+
+/* LUCENTE CINEMATIC GOLDEN CLOUDS */
+.hero {
+    position: relative;
+    isolation: isolate;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.97) 0%,
+            rgba(5, 5, 5, 0.78) 48%,
+            rgba(5, 5, 5, 0.30) 100%
+        ),
+        url("/static/images/golden-clouds.png") center / cover no-repeat,
+        #050505;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+        0deg,
+        #080808 0%,
+        transparent 35%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+.hero-content,
+.hero-visual {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-visual {
+    max-width: 100%;
+}
+
+.statue-slideshow {
+    border: 1px solid rgba(205, 165, 91, 0.65);
+    box-shadow: 0 0 35px rgba(205, 165, 91, 0.14);
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 640px) {
+    .hero {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5, 5, 5, 0.70),
+                rgba(5, 5, 5, 0.88)
+            ),
+            url("/static/images/golden-clouds.png") center / cover no-repeat,
+            #050505;
+    }
+}
+
+/* LUCENTE CINEMATIC ENTRANCE */
+@keyframes lucenteReveal {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content .eyebrow {
+    animation: lucenteReveal 0.8s ease both;
+}
+
+.hero h1 {
+    animation: lucenteReveal 1s ease 0.15s both;
+}
+
+.hero-description {
+    animation: lucenteReveal 1s ease 0.3s both;
+}
+
+.hero-buttons {
+    animation: lucenteReveal 1s ease 0.45s both;
+}
+
+.hero-note {
+    animation: lucenteReveal 1s ease 0.6s both;
+}
+
+.hero-visual {
+    animation: lucenteReveal 1.2s ease 0.4s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content .eyebrow,
+    .hero h1,
+    .hero-description,
+    .hero-buttons,
+    .hero-note,
+    .hero-visual {
+        animation: none;
+    }
+}
+
+/* LUCENTE — Seamless Greek Statue Blend */
+.statue-slideshow {
+    position: relative;
+    overflow: hidden;
+    background: #080807;
+    border: none;
+    box-shadow: none;
+    isolation: isolate;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 7%,
+        black 88%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 7%,
+        black 88%,
+        transparent 100%
+    );
+}
+
+.statue-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 1s ease, transform 4s ease;
+    filter: brightness(0.72) contrast(1.08) saturate(0.82);
+}
+
+.statue-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.statue-slideshow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 8, 7, 0.30) 0%,
+        transparent 25%,
+        transparent 70%,
+        rgba(8, 8, 7, 0.55) 100%
+    );
+}
+
+/* LUCENTE — NEW CINEMATIC BACKGROUND */
+.hero {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("../images/lucente-bg.png") center center / cover no-repeat !important;
+}
+
+/* LUCENTE FLOATING METHOD CARDS */
+.feature-card,
+.feature-item,
+.benefit-card,
+.method-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+@keyframes lucenteFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .feature-card,
+    .feature-item,
+    .benefit-card,
+    .method-card {
+        animation: lucenteFloat 4s ease-in-out infinite;
+    }
+
+    .feature-card:nth-child(2),
+    .feature-item:nth-child(2),
+    .benefit-card:nth-child(2),
+    .method-card:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    .feature-card:nth-child(3),
+    .feature-item:nth-child(3),
+    .benefit-card:nth-child(3),
+    .method-card:nth-child(3) {
+        animation-delay: 1s;
+    }
+}
+
+/* LUCENTE FLOATING FEATURE CARDS */
+.features .feature {
+    position: relative;
+    animation: lucenteFloat 4s ease-in-out infinite;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features .feature:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.features .feature:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+@keyframes lucenteFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* LUCENTE — LUXURY FLOATING CARDS */
+.features {
+    gap: 22px;
+    padding: 35px 22px;
+}
+
+.features .feature {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 28px 22px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(205, 165, 91, 0.65);
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 25, 17, 0.88),
+        rgba(8, 8, 8, 0.96)
+    );
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        inset 0 0 20px rgba(205, 165, 91, 0.035);
+}
+
+.features .feature-number {
+    min-width: 64px;
+    padding-right: 18px;
+    border-right: 1px solid rgba(205, 165, 91, 0.55);
+    color: #cdaa68;
+    font-family: Georgia, serif;
+    font-size: 34px;
+}
+
+.features .feature h3 {
+    margin: 0 0 10px;
+    color: #f2e9d7;
+    letter-spacing: 1.2px;
+    line-height: 1.35;
+}
+
+.features .feature p {
+    margin: 0;
+    color: #b7b1a8;
+    line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+    .features .feature {
+        gap: 16px;
+        padding: 24px 16px;
+        border-radius: 15px;
+    }
+
+    .features .feature-number {
+        min-width: 54px;
+        padding-right: 12px;
+        font-size: 30px;
+    }
+
+    .features .feature h3 {
+        font-size: 14px;
+    }
+
+    .features .feature p {
+        font-size: 14px;
+    }
+}
+
+/* LUCENTE — CLASSIC CENTERED HEADING */
+.features-heading {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto 34px;
+    padding: 0 12px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.features-heading > span {
+    display: block;
+    margin-bottom: 16px;
+    color: #cdaa68;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    line-height: 1.6;
+}
+
+.features-heading h2 {
+    margin: 0 0 16px;
+    color: #f2e9d7;
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 8vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.features-heading h2 em {
+    display: block;
+    color: #cdaa68;
+    font-weight: 400;
+}
+
+.features-heading p {
+    max-width: 340px;
+    margin: 0 auto;
+    color: #aaa39a;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+    .features-heading {
+        margin-bottom: 30px;
+    }
+}
+
+
+/* LUCENTE — CINEMATIC ABOUT SECTION */
+.about-cinematic {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 85% 35%,
+            rgba(177, 135, 65, 0.10) 0%,
+            rgba(177, 135, 65, 0.035) 28%,
+            transparent 62%
+        ),
+        #090908;
+}
+
+.about-cinematic .about-heading,
+.about-cinematic .about-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.about-cinematic .about-heading h2 {
+    line-height: 1.08;
+    letter-spacing: -1px;
+}
+
+.about-cinematic .about-heading h2 span {
+    color: #cdaa68;
+}
+
+.about-cinematic .about-copy p {
+    max-width: 540px;
+    line-height: 1.9;
+}
+
+.about-cinematic .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(205, 170, 104, 0.35);
+    text-decoration: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.about-cinematic .text-link:hover {
+    color: #cdaa68;
+    border-color: #cdaa68;
+}
+
+@media (max-width: 640px) {
+    .about-cinematic {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .about-cinematic .about-heading h2 {
+        font-size: clamp(38px, 10vw, 48px);
+    }
+
+    .about-cinematic .about-copy p {
+        font-size: 16px;
+    }
+}
+
+
+/* LUCENTE — CINEMATIC STATUE BACKGROUND */
+.about-cinematic {
+    background:
+        linear-gradient(
+            to right,
+            rgba(9,9,8,0.08) 0%,
+            rgba(9,9,8,0.30) 45%,
+            #090908 100%
+        ),
+        linear-gradient(
+            to bottom,
+            #090908 0%,
+            transparent 18%,
+            transparent 80%,
+            #090908 100%
+        ),
+        url("../images/about-statue.png") left center / cover no-repeat,
+        #090908;
+}
+
+@media (max-width: 640px) {
+    .about-cinematic {
+        background:
+            linear-gradient(
+                to right,
+                rgba(9,9,8,0.25),
+                rgba(9,9,8,0.62)
+            ),
+            linear-gradient(
+                to bottom,
+                rgba(9,9,8,0.12),
+                #090908 95%
+            ),
+            url("../images/about-statue.png") 24% top / auto 460px no-repeat,
+            #090908;
+    }
+}
+
+
+/* LUCENTE — SEAMLESS STATUE EDGE FADE */
+.about-cinematic {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 9%,
+        black 88%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 9%,
+        black 88%,
+        transparent 100%
+    );
+    background-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(9,9,8,0.08) 35%,
+            rgba(9,9,8,0.62) 75%,
+            #090908 100%
+        ),
+        linear-gradient(
+            to bottom,
+            #090908 0%,
+            transparent 18%,
+            transparent 78%,
+            #090908 100%
+        ),
+        url("../images/about-statue.png");
+    background-position: center, center, left center;
+    background-size: cover, cover, cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 640px) {
+    .about-cinematic {
+        background-image:
+            linear-gradient(
+                to right,
+                rgba(9,9,8,0.28),
+                rgba(9,9,8,0.50) 55%,
+                rgba(9,9,8,0.82)
+            ),
+            linear-gradient(
+                to bottom,
+                #090908 0%,
+                transparent 12%,
+                transparent 72%,
+                #090908 100%
+            ),
+            url("../images/about-statue.png");
+        background-position: center, center, 24% top;
+        background-size: cover, cover, auto 460px;
+    }
+}
+
+
+/* FIX — FADE STATUE WITHOUT FADING THE SECTION */
+.about-cinematic {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.about-cinematic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom,
+            #090908 0%,
+            transparent 16%,
+            transparent 78%,
+            #090908 100%),
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(9,9,8,.12) 32%,
+            rgba(9,9,8,.78) 82%,
+            #090908 100%);
+}
+
+.about-cinematic .about-heading,
+.about-cinematic .about-copy {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 640px) {
+    .about-cinematic::before {
+        background:
+            linear-gradient(to bottom,
+                #090908 0%,
+                transparent 12%,
+                transparent 72%,
+                #090908 100%),
+            linear-gradient(to right,
+                rgba(9,9,8,.15) 0%,
+                rgba(9,9,8,.32) 45%,
+                rgba(9,9,8,.78) 100%);
+    }
+}
+
+
+/* LUCENTE — FINAL STATUE EDGE FADE */
+.about-cinematic {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    background-color: #090908 !important;
+    background-image: none !important;
+    position: relative;
+    isolation: isolate;
+}
+
+.about-cinematic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(9,9,8,.12) 35%,
+            rgba(9,9,8,.78) 80%,
+            #090908 100%),
+        linear-gradient(to bottom,
+            #090908 0%,
+            transparent 18%,
+            transparent 78%,
+            #090908 100%),
+        url("../images/about-statue.png") 24% center / cover no-repeat;
+}
+
+@media (max-width: 640px) {
+    .about-cinematic::before {
+        background:
+            linear-gradient(to right,
+                rgba(9,9,8,.12) 0%,
+                rgba(9,9,8,.35) 48%,
+                rgba(9,9,8,.80) 100%),
+            linear-gradient(to bottom,
+                #090908 0%,
+                transparent 16%,
+                transparent 72%,
+                #090908 100%),
+            url("../images/about-statue.png") 24% center / auto 100% no-repeat;
+    }
+}
+
+.about-cinematic .about-heading,
+.about-cinematic .about-copy {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* LUCENTE — CINEMATIC FINAL CTA */
+.final-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 42%,
+            rgba(190, 145, 65, 0.13) 0%,
+            rgba(120, 85, 35, 0.055) 32%,
+            transparent 68%),
+        linear-gradient(180deg, #0b0a08 0%, #100e0a 52%, #080807 100%);
+    border-top: 1px solid rgba(205,170,104,.18);
+    border-bottom: 1px solid rgba(205,170,104,.12);
+    padding: 110px 24px 100px;
+}
+
+.final-cta::before,
+.final-cta::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 42px;
+    background: linear-gradient(180deg, transparent, #cdaa68);
+    pointer-events: none;
+}
+
+.final-cta::before { top: 0; }
+.final-cta::after {
+    bottom: 0;
+    background: linear-gradient(180deg, #cdaa68, transparent);
+}
+
+.final-cta .eyebrow {
+    color: #cdaa68;
+    letter-spacing: 3px;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.final-cta h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.final-cta h2 span {
+    color: #cdaa68;
+}
+
+.final-cta > p:not(.eyebrow):not(.contact-note) {
+    max-width: 440px;
+    margin: 24px auto 34px;
+    color: #b9b2a7;
+    line-height: 1.9;
+}
+
+.final-cta .button-gold {
+    border: 1px solid #cdaa68;
+    box-shadow: 0 8px 30px rgba(190,145,65,.10);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.final-cta .button-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 34px rgba(190,145,65,.2);
+}
+
+.final-cta .contact-note {
+    color: #827b70;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+    .final-cta {
+        padding: 90px 22px 84px;
+    }
+
+    .final-cta h2 {
+        font-size: clamp(39px, 10vw, 48px);
+    }
+
+    .final-cta .eyebrow {
+        letter-spacing: 2.2px;
+    }
+}
+
+
+/* LUCENTE — HERO IMAGE FADE ON ALL SIDES */
+.hero-visual {
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        #000 45%,
+        rgba(0,0,0,0.92) 60%,
+        rgba(0,0,0,0.55) 76%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        ellipse at center,
+        #000 45%,
+        rgba(0,0,0,0.92) 60%,
+        rgba(0,0,0,0.55) 76%,
+        transparent 100%
+    );
+}
+
+
+/* LUCENTE — SLIM MOBILE NAVBAR */
+@media (max-width: 640px) {
+    .navbar {
+        min-height: 68px;
+        padding: 8px 18px;
+        gap: 12px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand-wordmark {
+        font-size: 21px;
+        letter-spacing: 2.5px;
+    }
+
+    .navbar .button,
+    .navbar .button-gold {
+        padding: 14px 16px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+    }
+}
+
+
+/* FIX — HIDE STRAY NAVBAR DOT */
+.navbar > span,
+.nav-actions > span {
+    display: none !important;
+}
+
+
+/* FIX — CLEAN MOBILE HEADER */
+@media (max-width: 640px) {
+    .menu-toggle {
+        width: 28px !important;
+        height: 28px !important;
+        padding: 4px !important;
+        border: none !important;
+        background: transparent !important;
+        color: #cdaa68 !important;
+        font-size: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .menu-toggle span {
+        display: block !important;
+        width: 18px !important;
+        height: 1px !important;
+        margin: 4px auto !important;
+        background: #cdaa68 !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* MOBILE HEADER — PREMIUM SPACING */
+@media (max-width: 640px) {
+    .navbar {
+        min-height: 76px !important;
+        padding: 10px 16px !important;
+        gap: 12px !important;
+    }
+
+    .brand {
+        gap: 8px !important;
+        min-width: 0 !important;
+    }
+
+    .brand-logo {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .brand-wordmark {
+        font-size: 19px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .nav-actions {
+        gap: 12px !important;
+        align-items: center !important;
+    }
+
+    .nav-cta {
+        padding: 12px 10px !important;
+        font-size: 9px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0 !important;
+        width: 28px !important;
+    }
+}
+
+/* LUCENTE — REFINED MOBILE HEADER */
+@media (max-width: 640px) {
+    .navbar {
+        min-height: 70px !important;
+        padding: 9px 14px !important;
+        gap: 10px !important;
+    }
+
+    .brand {
+        gap: 7px !important;
+    }
+
+    .brand-logo {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .brand-wordmark {
+        font-size: 17px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .nav-cta {
+        padding: 11px 9px !important;
+        font-size: 8px !important;
+        letter-spacing: 0.8px !important;
+        gap: 5px !important;
+    }
+
+    .menu-toggle {
+        width: 25px !important;
+        min-width: 25px !important;
+        padding: 3px 0 !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* LUCENTE — MOBILE MENU DESIGN */
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu.is-open {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    flex-direction: column;
+    padding: 30px 25px;
+    padding-top: max(30px, env(safe-area-inset-top));
+    background: #080807;
+    color: #f4f0e8;
+    overflow-y: auto;
+}
+
+.mobile-menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(200,169,107,.3);
+}
+
+.mobile-menu-label {
+    color: #c8a96b;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.mobile-menu-close {
+    background: transparent;
+    border: 0;
+    color: #ead5a0;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+}
+
+.mobile-menu-links a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(200,169,107,.16);
+    color: #f4f0e8;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}
+
+.mobile-menu-links a > span:first-child {
+    color: #c8a96b;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+.mobile-menu-links .menu-arrow {
+    margin-left: auto;
+    color: #c8a96b;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.mobile-menu-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding: 18px;
+    background: #c8a96b;
+    color: #100e09;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.mobile-menu-footer {
+    margin-top: auto;
+    padding-top: 35px;
+    color: #918879;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+}
+
+@media (min-width: 641px) {
+    .mobile-menu {
+        display: none !important;
+    }
+}
